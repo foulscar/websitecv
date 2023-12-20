@@ -2,17 +2,6 @@
 // This TF File will Assume Different IAM Roles for each Stage
 // ---
 
-terraform {
-  required_version = "=1.6.5"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.26.0"
-    }
-  }
-}
-
 // Main Account
 provider "aws" {
   region = var.AWS_REGION
