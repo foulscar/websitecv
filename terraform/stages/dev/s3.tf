@@ -9,7 +9,7 @@ locals {
 // Get Dynamic Variables for JavaScript
 // ---
 data "template_file" "js_vars" {
-  template = "${file("${path.cwd}/../stages/dev/html/vars.js.tpl")}"
+  template = "${file("${path.module}/html/vars.js.tpl")}"
   vars = {
     metrics_api_url = "${module.public_api.api_endpoint}/prod/metrics"
   }
@@ -30,7 +30,7 @@ resource "null_resource" "upload_html" {
   depends_on = [module.s3_bucket]
 
   provisioner "local-exec" {
-    command = "aws s3 sync ./html/upload s3://${module.s3_bucket.s3_bucket_id}/"
+    command = "aws s3 sync ../stages/dev/html/upload s3://${module.s3_bucket.s3_bucket_id}/"
   }
 }
 

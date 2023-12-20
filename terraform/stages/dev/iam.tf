@@ -9,7 +9,7 @@ module "iam_tf_websitecv_putmetrics" {
   policies = {
     "tf_websitecv_putmetrics" = {
       name        = "${var.stage}_tf_websitecv_putmetrics"
-      policy_file = "${path.cwd}/iam/tf_websitecv_putmetrics.json.tpl"
+      policy_file = "${path.module}/iam/tf_websitecv_putmetrics.json.tpl"
       attributes = {
         "dynamodb_table_arn"      = module.dynamodb_table.table_arn
         "apigateway_resource_arn" = module.private_api.api_arn
@@ -29,7 +29,7 @@ module "iam_tf_websitecv_getmetrics" {
   policies = {
     "tf_websitecv_getmetrics" = {
       name        = "${var.stage}_tf_websitecv_getmetrics"
-      policy_file = "${path.cwd}/iam/tf_websitecv_getmetrics.json.tpl"
+      policy_file = "${path.module}/iam/tf_websitecv_getmetrics.json.tpl"
       attributes = {
         "dynamodb_table_arn" = module.dynamodb_table.table_arn
       }
@@ -48,7 +48,7 @@ module "iam_tf_proxy_websitecv_getmetrics" {
   policies = {
     "tf_websitecv_getmetrics" = {
       name        = "${var.stage}_tf_proxy_websitecv_getmetrics"
-      policy_file = "${path.cwd}/iam/tf_proxy_websitecv_getmetrics.json.tpl"
+      policy_file = "${path.module}/iam/tf_proxy_websitecv_getmetrics.json.tpl"
       attributes = {
         "api_arn" = "${module.private_api.api_execution_arn}/*"
       }
@@ -67,7 +67,7 @@ module "iam_codepipeline" {
   policies = {
     "AWSCodePipelineServicePolicy" = {
       name        = "${var.stage}_AWSCodePipelineServicePolicy"
-      policy_file = "${path.cwd}/iam/AWSCodePipelineServicePolicy.json.tpl"
+      policy_file = "${path.module}/iam/AWSCodePipelineServicePolicy.json.tpl"
       attributes = {}
     }
   }
