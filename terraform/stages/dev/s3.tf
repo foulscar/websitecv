@@ -9,7 +9,7 @@ locals {
 // Get Dynamic Variables for JavaScript
 // ---
 data "template_file" "js_vars" {
-  template = "${file("${path.cwd}/html/vars.js.tpl")}"
+  template = "${file("${path.cwd}../stages/dev/html/vars.js.tpl")}"
   vars = {
     metrics_api_url = "${module.public_api.api_endpoint}/prod/metrics"
   }
