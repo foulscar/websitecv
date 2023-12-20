@@ -18,3 +18,7 @@ variable "TFC_AWS_PROVIDER_AUTH" {
 variable "TFC_AWS_RUN_ROLE_ARN" {
   type = string
 }
+
+variable "AWS_REGION" {
+  type = string
+}
