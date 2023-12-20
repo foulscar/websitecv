@@ -6,6 +6,6 @@
 module "stage_dev" {
   source = "../stages/dev"
   providers = {
-    aws.DEV = aws.DEV
+    aws = aws.DEV
   }
 }
