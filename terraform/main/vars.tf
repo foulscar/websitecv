@@ -22,3 +22,7 @@ variable "TFC_AWS_RUN_ROLE_ARN" {
 variable "AWS_REGION" {
   type = string
 }
+
+variable "ASSUME_ROLE_DEV" {
+  type = string
+}
