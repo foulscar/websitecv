@@ -7,7 +7,7 @@ resource "aws_lambda_function" "lambda_tf_websitecv_putmetrics" {
   function_name    = "${var.stage}_tf_websitecv_putmetrics"
   role             = module.iam_tf_websitecv_putmetrics.role_arn
   handler          = "lambda_function.lambda_handler"
-  source_code_hash = filebase64sha256("lambda/tf_websitecv_putmetrics.zip")
+  source_code_hash = filebase64sha256("../stages/dev/lambda/tf_websitecv_putmetrics.zip")
   runtime          = "python3.11"
   timeout          = 10
 
@@ -31,7 +31,7 @@ resource "aws_lambda_function" "lambda_tf_websitecv_getmetrics" {
   function_name    = "${var.stage}_tf_websitecv_getmetrics"
   role             = module.iam_tf_websitecv_getmetrics.role_arn
   handler          = "lambda_function.lambda_handler"
-  source_code_hash = filebase64sha256("lambda/tf_websitecv_getmetrics.zip")
+  source_code_hash = filebase64sha256("../stages/dev/lambda/tf_websitecv_getmetrics.zip")
   runtime          = "python3.11"
   timeout          = 5
 
@@ -51,7 +51,7 @@ resource "aws_lambda_function" "lambda_tf_proxy_websitecv_getmetrics" {
   function_name    = "${var.stage}_tf_proxy_websitecv_getmetrics"
   role             = module.iam_tf_proxy_websitecv_getmetrics.role_arn
   handler          = "lambda_function.lambda_handler"
-  source_code_hash = filebase64sha256("lambda/tf_proxy_websitecv_getmetrics.zip")
+  source_code_hash = filebase64sha256("../stages/dev/lambda/tf_proxy_websitecv_getmetrics.zip")
   runtime          = "python3.11"
   timeout          = 5
 
