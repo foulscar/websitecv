@@ -26,12 +26,15 @@ module "s3_bucket" {
 // ---
 // Upload Files from "./html" into the Bucket
 // ---
-resource "null_resource" "upload_html" {
-  depends_on = [module.s3_bucket]
+resource "aws_s3_object" "upload_html" {
+  bucket = "${var.stage}-websitecv-webfiles-bucket-${local.account_id}"
 
-  provisioner "local-exec" {
-    command = "aws s3 sync ../stages/dev/html/upload s3://${module.s3_bucket.s3_bucket_id}/"
-  }
+  for_each = fileset("${path.module}/html/upload/" "**/*.*")
+
+  key = each.value
+  source = "${path.module}/html/upload/${each.value}"
+  content_type = each.value
+
 }
 
 resource "aws_s3_object" "js_vars_s3" {
