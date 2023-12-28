@@ -2,7 +2,7 @@
 // Create the ACM Certificate for SSL (Route53, CloudFront, and API Gateway)
 // ---
 
-resource "aws_acm_certifcate" "domain_certificate_request" {
+resource "aws_acm_certificate" "domain_certificate_request" {
   domain_name = var.domain_name
   subject_alternative_names = ["*.{var.domain_name}"]
   validation_method = "DNS"
