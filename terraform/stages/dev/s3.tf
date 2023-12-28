@@ -29,7 +29,7 @@ module "s3_bucket" {
 resource "aws_s3_object" "upload_html" {
   bucket = "${var.stage}-websitecv-webfiles-bucket-${local.account_id}"
 
-  for_each = fileset("${path.module}/html/upload/" "**/*.*")
+  for_each = fileset("${path.module}/html/upload/", "**/*.*")
 
   key = each.value
   source = "${path.module}/html/upload/${each.value}"
