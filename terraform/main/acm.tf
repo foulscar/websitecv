@@ -11,7 +11,7 @@ resource "aws_acm_certificate" "domain_certificate_request" {
     Name : var.domain_name
   }
 
-  lifecylce {
+  lifecycle {
     create_before_destroy = true
   }
 }
