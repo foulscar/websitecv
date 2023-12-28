@@ -18,5 +18,5 @@ resource "aws_acm_certificate" "domain_certificate_request" {
 
 resource "aws_acm_certificate_validation" "domain_certificate_validation" {
   certificate_arn = aws_acm_certificate.domain_certificate_request.arn
-  validation_record_fqdns = [aws_route53_record.domain_validation_record[0].fqdn]
+  validation_record_fqdns = [aws_route53_record.domain_validation_record[each.key].fqdn]
 }
