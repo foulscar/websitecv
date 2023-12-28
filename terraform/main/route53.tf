@@ -1,5 +1,5 @@
 // ---
-// Create Route53 Hosted Zone for corbingrossen.me and Add Subdomains for different stages 
+// Create Route53 Hosted Zone for corbingrossen.me and Add Subdomains for different stages
 // ---
 
 resource "aws_route53_zone" "main" {
