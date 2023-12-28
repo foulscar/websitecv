@@ -18,7 +18,7 @@ resource "aws_acm_certificate" "domain_certificate_request" {
 
 resource "aws_acm_certificate_validation" "domain_certificate_validation" {
   for_each = {
-    for validation_record in aws_route53_record.domain_validation_record => {
+    for validation_record in aws_route53_record.domain_validation_record: validation_record => {
       fqdn = validation_record.fqdn
     }
   }
