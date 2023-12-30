@@ -17,7 +17,7 @@
                 <h1 id="header-name">Corbin Grossen</h1>
                 <div class="addshading"></div>
                 <div class="card-child card-title header-title">
-                    <h1>An AWS Certified SysOps Administrator</h1>
+                    <h1>An AWS Certified Cloud Engineer</h1>
                 </div>
             </div>
             <!-- CloudWatch Metrics Button -->
@@ -38,7 +38,6 @@
                 </div>
             </div>
         </div>
-        <div></div>
         <div id="header-rightside">
             <!-- Headshot and Social Media -->
             <div id="headshot-social-wrapper">
@@ -68,7 +67,7 @@
                     <li class="nav-li nav-active" id="li-view-home"><a href="#home" id="btn-view-home">Home</a></li>
 
                     <div class="addshading"></div>
-                    <li class="nav-li" id="li-view-blog"><a href="#blog" id="btn-view-blog">Blog</a></li>
+                    <li class="nav-li" id="li-view-blog"><a href="#blog?latest" id="btn-view-blog">Blog</a></li>
                 </ul>
             </nav>
         </div>
@@ -103,34 +102,14 @@
                 </button>
                 <div class="addshading"></div>
                 <div class="card-child card-title">
-                    <h1 id="projects-page-nav">Page 1 of 5</h1>
+                    <h1 id="projects-page-nav">Loading Pages...</h1>
                 </div>
                 <div class="addshading"></div>
                 <button id="projects-page-nav-btn-right" class="card-child card-arrow">
                     <h1>&gt;&gt;</h1>
                 </button>
             </div>
-            <div id="projects-card-wrapper">
-                <div class="addshading"></div>
-                <div class="card">
-                    <div class="card-title-wrapper">
-                        <div class="card-child card-title">
-                            <h1 id="projects-page-date">11-19-23</h1>
-                        </div>
-                        <div class="card-child card-title">
-                            <h1 id="projects-page-title">Vote Party</h1>
-                        </div>
-                        <div class="card-child card-title">
-                            <a id="projects-page-docs-link"href="https://github.com/foulscar" target="_blank" class="github-icon">
-                                <h1 id="projects-page-docs-text">GitHub <i class="fab fa-github"></i></h1>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-child card-body">
-                        This will be a web app that allows users to vote with their friends on a daily set of poker cards. The technologies used will include CloudFront, S3, API Gateway, Lambda, DynamoDB, and Kinde Auth. 
-                    </div>
-                </div>
-            </div>
+            <div id="projects-card-wrapper"></div>
         </div>
 
         <!-- Home Page -->
@@ -140,8 +119,21 @@
 
         <!-- Blog Page -->
         <div id="content-blog" class="content-section" style="display:none;">
-            Content for Mode 2
-        </div>
+            <div class="card-title-arrows-wrapper">
+                <div class="addshading"></div>
+                <button id="blog-page-nav-btn-left" class="card-child card-arrow">
+                    <h1>&lt;&lt;</h1>
+                </button>
+                <div class="addshading"></div>
+                <div class="card-child card-title">
+                    <h1 id="blog-page-nav">Loading Pages...</h1>
+                </div>
+                <div class="addshading"></div>
+                <button id="blog-page-nav-btn-right" class="card-child card-arrow">
+                    <h1>&gt;&gt;</h1>
+                </button>
+            </div>
+            <div id="blog-card-wrapper"></div>        </div>
     </div>
 
     <!-- Popup Windows -->
