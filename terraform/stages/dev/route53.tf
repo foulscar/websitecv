@@ -3,7 +3,7 @@
 // ---
 
 resource "aws_route53_zone" "main" {
-  name = data.domain_strings.current.main
+  name = local.domain_string
 }
 
 resource "aws_route53_record" "domain_validation_record" {
