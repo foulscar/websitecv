@@ -26,3 +26,11 @@ variable "AWS_REGION" {
 variable "ASSUME_ROLE_DEV" {
   type = string
 }
+
+variable "IONOS_KEY_ARN" {
+  type = string
+}
+
+variable "IONOS_DOMAIN_ID" {
+  type = string
+}
