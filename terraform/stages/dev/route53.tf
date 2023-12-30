@@ -21,3 +21,18 @@ resource "aws_route53_record" "domain_validation_record" {
   ttl = 60
   allow_overwrite = true
 }
+
+// ---
+// CloudFront Record
+// ---
+
+resource "aws_route53_record" "cf_domain" {
+  zone_id = aws_route53_zone.main.zone_id
+  name = local.domain_string
+  type = "A"
+  alias {
+    name = module.cloudfront_distribution.domain
+    zone_id = module.cloudfront_distribution.zone_id
+    evaluate_target_health = true
+  }
+}
