@@ -1,4 +1,3 @@
-output "cloudfront_domain" {
-  description = "Domain of the CloudFront Distribution"
-  value       = module.cloudfront_distribution.domain
+output "subdomain_ns" {
+  value = aws_route53_zone.dev_main.name_servers
 }
