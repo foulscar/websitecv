@@ -3,12 +3,12 @@
 // ---
 
 resource "aws_acm_certificate" "domain_certificate_request" {
-  domain_name = var.domain_name
-  subject_alternative_names = ["*.${var.domain_name}"]
+  domain_name = data.domain_strings.current.main
+  subject_alternative_names = [data.domain_strings.current.all_prefix]
   validation_method = "DNS"
 
   tags = {
-    Name : var.domain_name
+    Name : data.domain_strings.current.main
   }
 
   lifecycle {
