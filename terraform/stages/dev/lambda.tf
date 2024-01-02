@@ -63,6 +63,7 @@ resource "aws_lambda_function" "lambda_tf_proxy_websitecv_getmetrics" {
   environment {
     variables = {
       VPC_ENDPOINT_DNS = "${module.private_api.api_id}.execute-api.${data.aws_region.current.name}.amazonaws.com"
+      API_PATH = "/main/metrics"
     }
   }
 }
