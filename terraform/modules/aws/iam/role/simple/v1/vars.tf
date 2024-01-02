@@ -6,6 +6,7 @@ variable "name" {
 variable "service" {
   description = "The AWS service that assumes the role"
   type        = string
+  default     = null
 }
 
 variable "policies" {
@@ -15,4 +16,13 @@ variable "policies" {
     policy_file = string
     attributes  = map(string)
   }))
+}
+
+variable "assume_role_policy" {
+  description = "Use this if you would like to use a custom assume role policy"
+  type = object({
+    policy_file = string
+    attributes = map(string)
+  })
+  default = null
 }

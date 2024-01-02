@@ -14,18 +14,6 @@ module "s3_bucket" {
 }
 
 // ---
-// Upload Files from "./html" into the Bucket
-// ---
-resource "aws_s3_object" "upload_html" {
-  bucket = "${var.stage}-websitecv-webfiles-bucket-${local.account_id}"
-
-  for_each = fileset("${path.module}/html/upload/", "**/*.*")
-
-  key = each.value
-  source = "${path.module}/html/upload/${each.value}"
-}
-
-// ---
 // Give the CloudFront Distribution Access to the Private S3 Bucket with a Bucket Policy
 // ---
 module "s3_bucket_policy" {

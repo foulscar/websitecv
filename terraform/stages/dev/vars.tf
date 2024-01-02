@@ -12,3 +12,8 @@ variable "gh_repo_name" {
   description = "Name of the GitHub Repo to Use"
   type = string
 }
+
+variable "gh_repo_owner" {
+  description = "Owner of the GitHub Repo"
+  type = string
+}

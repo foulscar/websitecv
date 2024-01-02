@@ -23,3 +23,9 @@ resource "github_actions_secret" "dist_id" {
   secret_name = "${var.stage}_html_dist_id"
   plaintext_value = module.cloudfront_distribution.id
 }
+
+resource "github_actions_secret" "assume_role_arn" {
+  repository = var.gh_repo_name
+  secret_name = "${var.stage}_assume_role_arn"
+  plaintext_value = module.iam_gh_actions.role_arn
+}

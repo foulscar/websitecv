@@ -1,7 +1,6 @@
 resource "aws_iam_role" "role" {
   name = var.name
-
-  assume_role_policy = jsonencode({
+  assume_role_policy = var.assume_role_policy != null ? templatefile(var.assume_role_policy.policy_file, var.assume_role_policy_file.attributes) : jsonencode({
     Version = "2012-10-17",
     Statement = [
       {
