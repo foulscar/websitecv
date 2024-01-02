@@ -10,10 +10,11 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Configure AWS Credentials
-        uses: fuller-inc/actions-aws-assume-role@v1
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: ${{ secrets.dev_html_s3_bucket_region }}
           role-to-assume: ${{ secrets.dev_assume_role_arn }}
+          role-session-name: gh-actions
 
       - name: Install dependencies and Build
         working-directory: ./html/dev

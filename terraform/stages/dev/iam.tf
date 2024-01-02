@@ -1,5 +1,5 @@
 // ---
-// Create the IAM Role for GitHub Actions to Assume
+// Create the IAM Policy to Allow GitHub Actions Access to the S3 Bucket
 // ---
 
 module "iam_gh_actions" {
