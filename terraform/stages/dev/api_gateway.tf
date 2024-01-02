@@ -38,7 +38,7 @@ module "public_api" {
   api_name   = "${var.stage}-websitecv-api-public"
   stage_name = "prod"
 
-  cloudfront_url = module.cloudfront_distribution.domain
+  cors_allow_url = local.domain_string
   
   disable_execute_api_endpoint = true
   domain_name = "api.${local.domain_string}"

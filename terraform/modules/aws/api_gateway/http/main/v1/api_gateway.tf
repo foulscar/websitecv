@@ -13,7 +13,7 @@ resource "aws_apigatewayv2_api" "http_api" {
   protocol_type = "HTTP"
   disable_execute_api_endpoint = var.disable_execute_api_endpoint
   cors_configuration {
-    allow_origins = ["https://${var.cloudfront_url}"]
+    allow_origins = ["https://${var.cors_allow_url}"]
     allow_methods = ["GET","OPTIONS","HEAD"]
     allow_headers = ["*"]
   }

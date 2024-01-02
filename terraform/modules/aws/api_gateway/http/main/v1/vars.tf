@@ -21,8 +21,8 @@ variable "api_methods" {
   default = []
 }
 
-variable "cloudfront_url" {
-  description = "Domain of the CloudFront Distribution to allow CORS"
+variable "cors_allow_url" {
+  description = "Domain of the url to allow CORS"
   type = string
 }
 
