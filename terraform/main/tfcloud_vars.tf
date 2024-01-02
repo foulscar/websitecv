@@ -29,4 +29,4 @@ variable "ASSUME_ROLE_DEV" {
 
 variable "GITHUB_TOKEN" {
   type = string
-}
+} 
