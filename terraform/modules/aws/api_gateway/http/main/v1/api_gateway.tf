@@ -31,6 +31,14 @@ resource "aws_apigatewayv2_domain_name" "domain_name" {
   }
 }
 
+resource "aws_apigatewayv2_api_mapping" "mapping" {
+  count = var.domain_name != null ? 1 : 0
+
+  api_id = aws_apigatewayv2_api.http_api.id
+  domain_name = aws_apigatewayv2_domain_name.domain_name.id
+  stage = aws_apigatewayv2_stage.api_stage.id
+}
+
 // Routes and Integrations
 resource "aws_apigatewayv2_route" "api_route" {
   for_each    = { for idx, method in var.api_methods : idx => method }

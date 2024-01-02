@@ -29,7 +29,7 @@ module "private_api" {
 }
 
 // ---
-// Create a Public HTTP API to be Used as a Proxt with API Gateway
+// Create a Public HTTP API to be Used as a Proxy with API Gateway
 // ---
 
 module "public_api" {
