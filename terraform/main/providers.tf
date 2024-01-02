@@ -2,6 +2,9 @@
 // This TF File will Assume Different IAM Roles for each Stage
 // ---
 
+// GitHub
+provider "github" {}
+
 // Main Account
 provider "aws" {
   region = var.AWS_REGION
