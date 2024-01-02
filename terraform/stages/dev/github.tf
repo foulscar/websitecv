@@ -27,7 +27,7 @@ resource "github_actions_secret" "dist_id" {
 resource "github_actions_secret" "assume_role_arn" {
   repository = var.gh_repo_name
   secret_name = "${var.stage}_assume_role_arn"
-  plaintext_value = module.iam_gh_actions.role_arn
+  plaintext_value = module.gh_oidc_repo.role.arn.role_arn
 }
 
 // ---
@@ -43,7 +43,7 @@ module "gh_oidc_repo" {
 
   openid_connect_provider_arn = module.gh_oidc_provider.openid_connect_provider.arn
   repo                        = var.gh_repo_name
-  role_name                   = "${stage}_gh_actions"
+  role_name                   = "${var.stage}_gh_actions"
 
   default_conditions          = ["allow_main"]
 }
