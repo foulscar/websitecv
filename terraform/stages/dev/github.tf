@@ -35,11 +35,11 @@ resource "github_actions_secret" "assume_role_arn" {
 // ---
 
 module "gh_oidc_provider" {
-  source = "github.com/philips-labs/terraform-aws-github-oidc?ref=0.7.1//modules/provider"
+  source = "github.com/philips-labs/terraform-aws-github-oidc?ref=v0.7.1//modules/provider"
 }
 
 module "gh_oidc_repo" {
-  source = "github.com/philips-labs/terraform-aws-github-oidc?ref=0.7.1"
+  source = "github.com/philips-labs/terraform-aws-github-oidc?ref=v0.7.1"
 
   openid_connect_provider_arn = module.gh_oidc_provider.openid_connect_provider.arn
   repo                        = var.gh_repo_name
