@@ -11,10 +11,23 @@ resource "aws_apigatewayv2_api" "http_api" {
   name          = var.api_name
   description   = "HTTP API"
   protocol_type = "HTTP"
+  disable_execute_api_endpoint = var.disable_execute_api_endpoint
   cors_configuration {
     allow_origins = ["https://${var.cloudfront_url}"]
     allow_methods = ["GET","OPTIONS","HEAD"]
     allow_headers = ["*"]
+  }
+}
+
+resource "aws_apigatewayv2_domain_name" "domain_name" {
+  count = var.domain_name != null ? 1 : 0
+
+  domain_name = var.domain_name
+
+  domain_name_configuration {
+    certificate_arn = var.certificate_arn
+    endpoint_type = var.endpoint_type
+    security_policy = var.security_policy
   }
 }
 

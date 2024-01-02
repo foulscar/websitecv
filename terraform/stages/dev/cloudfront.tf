@@ -7,5 +7,5 @@ module "cloudfront_distribution" {
   s3_bucket_id          = module.s3_bucket.s3_bucket_id
   s3_bucket_domain_name = module.s3_bucket.s3_bucket_domain_name
   domain_name = local.domain_string
-  acm_certificate_arn = aws_acm_certificate.domain_certificate_request.arn
+  acm_certificate_arn = module.acm_cert_cf.certificate_arn
 }

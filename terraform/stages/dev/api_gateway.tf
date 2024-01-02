@@ -39,6 +39,10 @@ module "public_api" {
   stage_name = "prod"
 
   cloudfront_url = module.cloudfront_distribution.domain
+  
+  disable_execute_api_endpoint = true
+  domain_name = "api.${local.domain_string}"
+  certificate_arn = module.acm_cert_api.certificate_arn
 
   api_methods = [
     {

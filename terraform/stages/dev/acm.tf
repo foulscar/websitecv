@@ -2,23 +2,16 @@
 // Create the ACM Certificate for SSL (Route53, CloudFront, and API Gateway)
 // ---
 
-resource "aws_acm_certificate" "domain_certificate_request" {
+module "acm_cert_cf" {
+  source = "../../modules/aws/acm/validation/v1"
+
   domain_name = local.domain_string
-  subject_alternative_names = ["*.${local.domain_string}"]
-  validation_method = "DNS"
-
-  tags = {
-    Name : local.domain_string
-  }
-
-  lifecycle {
-    create_before_destroy = true
-  }
+  zone_id = aws_route53_zone.main.zone_id
 }
 
-resource "aws_acm_certificate_validation" "domain_certificate_validation" {
-  for_each = aws_route53_record.domain_validation_record
-  
-  certificate_arn = aws_acm_certificate.domain_certificate_request.arn
-  validation_record_fqdns = [each.value.fqdn]
+module "acm_cert_api" {
+  source = "../../modules/aws/acm/validation/v1"
+
+  domain_name = "api.${local.domain_string}"
+  zone_id = aws_route53_zone.main.zone_id
 }
