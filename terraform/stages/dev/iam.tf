@@ -8,8 +8,7 @@ module "iam_gh_actions" {
   assume_role_policy = {
     policy_file = "${path.module}/iam/gh_actions/gh_actions_assume_role.json.tpl"
     attributes = {
-      "account_arn" = data.aws_caller_identity.current.arn
-      "repo" = "${var.gh_repo_owner}/${var.gh_repo_name}"
+     "repo" = "${var.gh_repo_owner}/${var.gh_repo_name}"
     }
   }
   policies = {
