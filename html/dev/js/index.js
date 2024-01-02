@@ -94,11 +94,6 @@ async function initialize() {
             'contact': 'markdown/contact.md'
         };
 
-        // Hide Loading Screen
-        function hideLoadingScreen() {
-            document.querySelectorAll('.loadingcontainer').forEach(el => el.classList.add('hidden'));
-            document.body.classList.remove('no-scroll');
-        }
 
         // Load markdown content for each section when the document content has been loaded
         document.addEventListener('DOMContentLoaded', () => {
@@ -118,8 +113,6 @@ async function initialize() {
             // Adjust card shadows on window resize
             window.addEventListener('resize', updateShadingDimensionsAndPosition);
 
-            // Hide Loading Screen
-            setTimeout(hideLoadingScreen, 200);
             setButtonActions();
         };
 
