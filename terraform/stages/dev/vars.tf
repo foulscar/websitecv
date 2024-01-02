@@ -7,3 +7,8 @@ variable "domain_name" {
   description = "Root Domain Name to Use"
   type = string
 }
+
+variable "gh_repo_name" {
+  description = "Name of the GitHub Repo to Use"
+  type = string
+}

@@ -7,6 +7,7 @@ module "stage_dev" {
   source = "../stages/dev"
   stage = "dev"
   domain_name = var.domain_name
+  gh_repo_name = var.gh_repo_name
   providers = {
     aws = aws.DEV
   }
