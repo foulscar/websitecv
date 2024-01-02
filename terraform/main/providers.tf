@@ -3,7 +3,9 @@
 // ---
 
 // GitHub
-provider "github" {}
+provider "github" {
+  token = var.GITHUB_TOKEN
+}
 
 // Main Account
 provider "aws" {

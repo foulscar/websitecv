@@ -26,3 +26,7 @@ variable "AWS_REGION" {
 variable "ASSUME_ROLE_DEV" {
   type = string
 }
+
+variable "GITHUB_TOKEN" {
+  type = string
+}
