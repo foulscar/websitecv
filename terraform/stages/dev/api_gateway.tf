@@ -6,7 +6,7 @@ module "private_api" {
   source = "../../modules/aws/api_gateway/rest/private/v1"
 
   api_name         = "${var.stage}-websitecv-api-private"
-  stage_name       = "prod"
+  stage_name       = "main"
   source_vpc_id    = module.private_vpc.vpc_id
   vpc_endpoint_ids = [aws_vpc_endpoint.private_api_endpoint.id]
 
@@ -36,7 +36,7 @@ module "public_api" {
   source = "../../modules/aws/api_gateway/http/main/v1"
 
   api_name   = "${var.stage}-websitecv-api-public"
-  stage_name = "prod"
+  stage_name = "main"
 
   cors_allow_url = local.domain_string
   
