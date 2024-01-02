@@ -27,7 +27,7 @@ resource "github_actions_secret" "dist_id" {
 resource "github_actions_secret" "assume_role_arn" {
   repository = var.gh_repo_name
   secret_name = "${var.stage}_assume_role_arn"
-  plaintext_value = module.gh_oidc_repo.role.arn.role_arn
+  plaintext_value = module.gh_oidc_repo.role.arn
 }
 
 // ---

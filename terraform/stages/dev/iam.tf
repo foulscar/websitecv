@@ -5,7 +5,7 @@
 module "iam_gh_actions" {
   source = "../../modules/aws/iam/policy/simple/v1"
   name = "${var.stage}_gh_actions"
-  role_name = module.gh_oidc_repo.role.role_name
+  role_name = module.gh_oidc_repo.role.name
   policy_file = "${path.module}/iam/gh_actions/gh_actions.json.tpl"
   attributes = {
     "bucket_arn" = module.s3_bucket.s3_bucket_arn
