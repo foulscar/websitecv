@@ -1,17 +1,20 @@
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::053160724612:root"
-      },
-      "Action": "sts:AssumeRole",
-      "Condition": {
-        "StringEquals": {
-          "sts:ExternalId": "${repo}"
-        }
-      }
-    }
-  ]
+   "Version": "2012-10-17",
+   "Statement": [
+       {
+           "Effect": "Allow",
+           "Principal": {
+               "Federated": "arn:aws:iam::3**********0:oidc-provider/token.actions.githubusercontent.com"
+           },
+           "Action": "sts:AssumeRoleWithWebIdentity",
+           "Condition": {
+               "StringEquals": {
+                   "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+               },
+               "StringLike": {
+                   "token.actions.githubusercontent.com:sub": "repo:${repo}:*"
+               }
+           }
+       }
+   ]
 }
