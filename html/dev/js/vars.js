@@ -2,4 +2,4 @@
 
 var websitecv_vars = {
   metrics_api_url : "https://api.dev.corbingrossen.me/metrics"
-} 
+}
