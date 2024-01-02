@@ -15,7 +15,7 @@ resource "github_actions_secret" "bucket" {
 resource "github_actions_secret" "bucket_region" {
   repository = var.gh_repo_name
   secret_name = "${var.stage}_html_s3_bucket_region"
-  plaintext_value = data.aws_region.current
+  plaintext_value = data.aws_region.current.name
 }
 
 resource "github_actions_secret" "dist_id" {
