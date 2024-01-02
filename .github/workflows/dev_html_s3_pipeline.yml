@@ -1,0 +1,35 @@
+name: Deploy HTML files to the Dev S3 Bucket
+on:
+  push:
+    paths:
+      - 'html/dev/**'
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        with:
+          aws-region: ${{ secrets.dev_html_s3_bucket_region }}
+          role-to-assume: ${{ secrets.dev_assume_role_arn }}
+
+      - name: Install dependencies and Build
+        working-directory: ./html/dev
+        run: |
+          yarn
+          yarn build
+
+      - name: Deploy
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: build
+          bucket: ${{ secrets.dev_html_s3_bucket }}
+          bucket-region: ${{ secrets.dev_html_s3_bucket_region }}
+          dist-id: ${{ secrets.dev_html_dist_id }}
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: '{.*/**,**}'
