@@ -19,7 +19,6 @@ jobs:
           role-session-name: gh-actions
 
       - name: Install dependencies and Build
-        working-directory: ./html/dev
         run: |
           yarn
           yarn build
@@ -35,4 +34,4 @@ jobs:
           delete-removed: true
           no-cache: true
           private: true
-          files-to-include: '{.*/**,**}'
+          files-to-include: '{html/dev/*/**,html/dev/**}'
