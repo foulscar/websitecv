@@ -29,3 +29,21 @@ resource "github_actions_secret" "assume_role_arn" {
   secret_name = "${var.stage}_assume_role_arn"
   plaintext_value = module.iam_gh_actions.role_arn
 }
+
+// ---
+// Create the OpenID Connect Provider
+// ---
+
+module "gh_oidc_provider" {
+  source = "github.com/philips-labs/terraform-aws-github-oidc?ref=0.7.1//modules/provider"
+}
+
+module "gh_oidc_repo" {
+  source = "github.com/philips-labs/terraform-aws-github-oidc?ref=0.7.1"
+
+  openid_connect_provider_arn = module.gh_oidc_provider.openid_connect_provider.arn
+  repo                        = var.gh_repo_name
+  role_name                   = "${stage}_gh_actions"
+
+  default_conditions          = ["allow_main"]
+}

@@ -3,23 +3,13 @@
 // ---
 
 module "iam_gh_actions" {
-  source = "../../modules/aws/iam/role/simple/v1"
+  source = "../../modules/aws/iam/policy/simple/v1"
   name = "${var.stage}_gh_actions"
-  assume_role_policy = {
-    policy_file = "${path.module}/iam/gh_actions/gh_actions_assume_role.json.tpl"
-    attributes = {
-     "repo" = "${var.gh_repo_owner}/${var.gh_repo_name}"
-    }
-  }
-  policies = {
-    "gh_actions" = {
-      name = "${var.stage}_gh_actions"
-      policy_file = "${path.module}/iam/gh_actions/gh_actions.json.tpl"
-      attributes = {
-        "bucket_arn" = module.s3_bucket.s3_bucket_arn
-        "distribution_arn" = module.cloudfront_distribution.arn
-      }
-    }
+  role_name = module.gh_oidc_repo.role.role_name
+  policy_file = "${path.module}/iam/gh_actions/gh_actions.json.tpl"
+  attributes = {
+    "bucket_arn" = module.s3_bucket.s3_bucket_arn
+    "distribution_arn" = module.cloudfront_distribution.arn
   }
 }
 
