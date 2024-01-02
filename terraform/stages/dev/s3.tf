@@ -23,8 +23,6 @@ resource "aws_s3_object" "upload_html" {
 
   key = each.value
   source = "${path.module}/html/upload/${each.value}"
-  content_type = each.value
-
 }
 
 // ---
