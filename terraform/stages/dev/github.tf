@@ -11,3 +11,15 @@ resource "github_actions_secret" "bucket" {
   secret_name = "${var.stage}_html_s3_bucket"
   plaintext_value = module.s3_bucket.s3_bucket_domain_name
 }
+
+resource "github_actions_secret" "bucket_region" {
+  repository = var.gh_repo_name
+  secret_name = "${var.stage}_html_s3_bucket_region"
+  plaintext_value = data.aws_region.current
+}
+
+resource "github_actions_secret" "dist_id" {
+  repository = var.gh_repo_name
+  secret_name = "${var.stage}_html_dist_id"
+  plaintext_value = module.cloudfront_distribution.id
+}
