@@ -4,7 +4,7 @@
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:sts::053160724612:assumed-role/aws-assume-role-ProviderFunctionRole-*/aws-assume-role-ProviderFunction-*"
+        "AWS": "arn:aws:sts::053160724612:assumed-role/*"
       },
       "Action": "sts:AssumeRole",
       "Condition": {
