@@ -32,6 +32,6 @@ resource "aws_route53_record" "api_record" {
   alias {
     name = module.public_api.target_domain_name
     zone_id = module.public_api.hosted_zone_id
-    evaluate_target_health = true
+    evaluate_target_health = false
   }
 }

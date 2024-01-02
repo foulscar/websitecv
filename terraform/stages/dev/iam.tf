@@ -55,20 +55,3 @@ module "iam_tf_proxy_websitecv_getmetrics" {
     }
   }
 }
-
-// ---
-// Create the IAM Role for CodePipeline
-// ---
-
-module "iam_codepipeline" {
-  source  = "../../modules/aws/iam/role/simple/v1"
-  service = "codepipeline.amazonaws.com"
-  name    = "${var.stage}_AWSCodePipelineServiceRole"
-  policies = {
-    "AWSCodePipelineServicePolicy" = {
-      name        = "${var.stage}_AWSCodePipelineServicePolicy"
-      policy_file = "${path.module}/iam/AWSCodePipelineServicePolicy.json.tpl"
-      attributes = {}
-    }
-  }
-}
