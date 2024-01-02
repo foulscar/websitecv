@@ -42,7 +42,7 @@ module "gh_oidc_repo" {
   source = "github.com/philips-labs/terraform-aws-github-oidc?ref=v0.7.1"
 
   openid_connect_provider_arn = module.gh_oidc_provider.openid_connect_provider.arn
-  repo                        = var.gh_repo_name
+  repo                        = "${var.gh_repo_owner}/${var.gh_repo_name}"
   role_name                   = "${var.stage}_gh_actions"
 
   default_conditions          = ["allow_main"]
