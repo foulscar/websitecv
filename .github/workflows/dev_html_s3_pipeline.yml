@@ -18,15 +18,10 @@ jobs:
           role-to-assume: ${{ secrets.dev_assume_role_arn }}
           role-session-name: gh-actions
 
-      - name: Install dependencies and Build
-        run: |
-          yarn
-          yarn build
-
-      - name: Deploy
+      - name: Deploy HTML Files to S3
         uses: reggionick/s3-deploy@v4
         with:
-          folder: build
+          folder: html/dev
           bucket: ${{ secrets.dev_html_s3_bucket }}
           bucket-region: ${{ secrets.dev_html_s3_bucket_region }}
           dist-id: ${{ secrets.dev_html_dist_id }}
@@ -34,4 +29,4 @@ jobs:
           delete-removed: true
           no-cache: true
           private: true
-          files-to-include: '{html/dev/*/**,html/dev/**}'
+          files-to-include: '{.*/**,**}'
