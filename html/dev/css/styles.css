@@ -77,11 +77,11 @@ header {
 }
 
 .header-title {
-  font-size: min(11vw,5.5rem);
+  font-size: 11vw;
 }
 
 .header-subtitle {
-  font-size: min(6vw,3rem);
+  font-size: 6vw;
 }
 
 .title-wrapper-separator {
@@ -115,13 +115,12 @@ header {
 }
 
 .pfp-wrapper {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   width: 40%;
-  position: relative;
   right: -1vw;
-  z-index: 10;
+  z-index: -1;
   background-color: white;
 }
 
@@ -152,6 +151,7 @@ header {
   display: flex;
   flex-direction: column;
   word-break: break-all;
+  z-index: -10;
   color: white;
   border: 0.2rem solid black;
   padding: 1vw 1vw 1vw 2vw;
@@ -160,7 +160,7 @@ header {
   width: 35%;
   height: 50vw;
   position: relative;
-  left: -1vw;
+  left: -1.3vw;
   box-shadow:
     black -0.2rem 0.2rem,
     inset rgba(60, 70, 85, 0.5) 0px 0px 4vw 0px,
@@ -193,12 +193,15 @@ term-blink::after {
 
 .arrow-key-wrapper {
   display: flex;
+  width: max-content;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  position: relative;
+  left: 43vw;
 }
 
-.arrow-key-left, .arrow-key-right {
+#arrow-key-input, #arrow-key-output {
   display: flex;
   background: white;
   border: 0.2rem solid black;
@@ -208,12 +211,12 @@ term-blink::after {
     black 0 0.35vw;
 }
 
-.arrow-key-left {
+#arrow-key-input {
   border-right-style: none;
   z-index: 10;
 }
 
-.arrow-key-right {
+#arrow-key-output {
   border-left-style: none;
 }
 
@@ -234,13 +237,74 @@ term-blink::after {
   margin: 0 0.5vw;
 }
 
+/* Connector Boxes and SVG (Draw Cable) */
+
+#pfp-connector-box {
+  display: inline-block;
+  background: white;
+  border: 0.2rem solid black;
+  border-top-style: none;
+  width: 6vw;
+  height: 2vw;
+  position: relative;
+  top: -4vw;
+  left: 27vw;
+  box-shadow:
+    black 0 0.35vw
+}
+
+#pfp-connector-box::after {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  width:15vw;
+  height: 13vw;
+  left: 2.25vw;
+  border: solid 1.5vw black;
+  border-right-style: none;
+  border-top-style: none;
+  border-radius: 0 0 0 50%;
+}
+
+#main-connector-box {
+  background: white;
+  border: 0.2rem solid black;
+  border-bottom-style: none;
+  width: 6vw;
+  height: 2vw;
+  position: relative;
+  top: 11vw;
+  left: 12.5vw;
+  box-shadow:
+    black -0.35vw 0.35vw
+}
+
+#arrow-key-output::after {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  width:15vw;
+  height: 17vw;
+  left: 25vw;
+  top: 5vw;
+  border: solid 1.5vw black;
+  border-left-style: none;
+  border-bottom-style: none;
+  border-radius: 0 50% 0 0;
+}
+
 /* Main Panel */
 
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 0 3vw 3vw 3vw;
+}
+
+.main-panel-top-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .main-panel-top {
@@ -250,7 +314,7 @@ term-blink::after {
   color: white;
   border: 0.2rem solid black;
   border-radius: 10px;
-  width: 75%;
+  width: 65%;
   height: 10vw;
   padding: 2vw 0 0 2vw;
   position: relative;
@@ -310,7 +374,7 @@ term-blink::after {
   }
 
   .pfp-wrapper {
-    width: 20%;
+    width: 15%;
   }
   
   .pfp-btn-wrapper {
@@ -318,18 +382,18 @@ term-blink::after {
   }
 
   .pfp-btn-wrapper * {
-    font-size: 3.5vw;
+    font-size: 2.625vw;
   }
 
   .pfp-sidepanel {
-    width: 30%;
-    height: 13.5vw;
+    width: 22.5%;
+    height: 10.125vw;
     padding: 0.3vw 2vw 1vw 1vw;
     left: 2vw;
   }
 
   .pfp-sidepanel *, .main-panel-top * {
-    font-size: 1vw;
+    font-size: 0.775vw;
   }
 
   term-blink::after {
@@ -340,28 +404,29 @@ term-blink::after {
 
   .arrow-key-wrapper {
     position: relative;
-    top: -10vw;
+    top: -2vw;
+    left: 32vw;
   }
 
-  .arrow-key-left, .arrow-key-right {
-    width: 1vw;
-    height: 3vw;
+  #arrow-key-input, #arrow-key-output {
+    width: 0.75vw;
+    height: 2.25vw;
   }
 
   .arrow-key-buttons-wrapper {
-    width: 10vw;
-    height: 5vw;
+    width: 7.5vw;
+    height: 3.75vw;
   }
 
   .arrow-key {
-    font-size: 5vw;
+    font-size: 3.75vw;
     margin: 0 0.25vw;
   }
 
   .main-wrapper {
     padding: 0 1vw 1vw 1vw;
     position: relative;
-    top: -10vw;
+    top: -5vw;
   }
 
   .main-panel-top {
