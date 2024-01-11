@@ -13,7 +13,7 @@
       <div class="title-wrapper-separator">
       <div class="title-wrapper card-big">
       <h1 class="header-title">Corbin Grossen</h1>
-      <div class="title-role-card card-small">
+      <div class="title-role-card card-small border--round-5">
         <h2 class="header-subtitle">An AWS Cloud Engineer</h2>
       </div>
     </div>
@@ -31,14 +31,14 @@
           <h1>
             <term-green>you@corbinpc</term-green>:<term-blue>~</term-blue>$ ls -ls | awk '{print "| " $7, ($8<10 ? $8 " " : $8), "| ", $10}'
               <br><br>
-              <a>| Jan 3  |  Blog</a><br>
-              <a>| Jan 3  |  Contact</a><br>
-              <a>| Jan 3  |  Home</a><br>
-              <a>| Jan 3  |  Metrics</a><br>
-              <a>| Jan 3  |  Projects</a><br>
-              <a>| Jan 3  |  Resume</a><br>
+              <a id="nav-blog" class="nav-main" href="#blog">| Jan 3  |  Blog</a><br>
+              <a id="nav-contact" class="nav-main" href="#contact">| Jan 3  |  Contact</a><br>
+              <a id="nav-home" class="nav-main" href="#home">| Jan 3  |  Home</a><br>
+              <a id="nav-metrics" class="nav-main" href="#metrics">| Jan 3  |  Metrics</a><br>
+              <a id="nav-projects" class="nav-main" href="#projects">| Jan 3  |  Projects</a><br>
+              <a id="nav-resume" class="nav-main" href="#resume">| Jan 3  |  Resume</a><br>
             <br>
-              <term-blink><term-green>you@corbinpc</term-green>:<term-blue>~</term-blue>$ cd ./Blog </term-blink>
+                <term-blink><term-green>you@corbinpc</term-green>:<term-blue>~</term-blue><text id="pfp-sidepanel-nav"> </text></term-blink>
           <h1>
         </div>
     </div>
@@ -49,25 +49,29 @@
   <div class="arrow-key-wrapper">
     <div id="arrow-key-input"></div>
     <div class="arrow-key-buttons-wrapper border--round-10">
-      <i class='arrow-key far fa-caret-square-up'></i>
-      <i class='arrow-key far fa-caret-square-down'></i>
+        <a href="#" id="nav-main-up"><i class='arrow-key far fa-caret-square-up'></i></a>
+        <a href="#" id="nav-main-down"><i class='arrow-key far fa-caret-square-down'></i></a>
     </div>
     <div id="arrow-key-output"></div>
   </div>
 
-  <div class="main-wrapper">
-      <div class="main-panel-top-wrapper">
-      <div class="main-panel-top">
-        <h1><term-blink><term-green>you@corbinpc</term-green>:<term-blue>~/Projects</term-blue>$ lynx ./index.html </term-blink></h1>
+  <div id="main-wrapper">
+      <div id="main-panel-top-wrapper">
+      <div id="main-panel-top">
+        <h1><term-blink><term-green>you@corbinpc</term-green>:<term-blue id="main-panel-top-nav">~</term-blue>$ lynx ./index.html </term-blink></h1>
     </div>
     <div id="main-connector-box"></div>
     </div>
-    <div class="main-panel border--round-10">
-
+    <div id="main-panel" class="border--round-10">
+      <div id="main-panel-content"></div>
     </div>
   </div>
 
-<script src="https://kit.fontawesome.com/6390bce5ca.js" crossorigin="anonymous"></script>
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<script src="3p/fontawesome_6390bce5ca.js"></script>
+<script src="3p/htmx_1_9_10.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/blogVars.js"></script>
+<script src="3p/marked.min.js"></script>
 </body>
 </html>
+
