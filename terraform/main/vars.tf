@@ -12,3 +12,7 @@ variable "gh_repo_owner" {
   type = string
   default = "foulscar"
 }
+
+variable "MX_MAPPING" {
+  type = map(string)
+}
