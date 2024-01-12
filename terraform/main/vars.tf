@@ -14,7 +14,5 @@ variable "gh_repo_owner" {
 }
 
 variable "MX_MAPPING" {
-  type = map(object({
-    TXT = string
-  }))
+  type = map(string)
 }
