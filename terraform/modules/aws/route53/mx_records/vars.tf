@@ -7,8 +7,8 @@ variable "zone_id" {
 }
 
 variable "MX_MAPPING" {
-  type = map(object({
+  type = object({
     TXT = string
-    MX = list(string)
-  }))
+    MX = set(string)
+  })
 }
