@@ -17,5 +17,6 @@ variable "MX_MAPPING" {
   type = object({
     TXT = string
     MX = set(string)
+    SPF = string
   })
 }
