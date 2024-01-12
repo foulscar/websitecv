@@ -15,8 +15,7 @@ variable "gh_repo_owner" {
 
 variable "MX_MAPPING" {
   type = object({
-    TXT = string
+    TXT = set(string)
     MX = set(string)
-    SPF = string
   })
 }
