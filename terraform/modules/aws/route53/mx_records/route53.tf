@@ -5,5 +5,5 @@ resource "aws_route53_record" "TXT" {
   type = "TXT"
   zone_id = var.zone_id
 
-  records = var.MX_MAPPING["TXT"]
+  records = [ var.MX_MAPPING["TXT"] ]
 }
