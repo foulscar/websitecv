@@ -17,3 +17,14 @@ resource "aws_route53_record" "MX" {
 
   records = var.MX_MAPPING.MX
 }
+
+resource "aws_route53_record" "DKIM" {
+  for_each = ["", "2", "3"]
+  allow_overwrite = true
+  name = "protonmail${each.value}._domainkey.${var.domain_name}"
+  ttl = 172800
+  type = "CNAME"
+  zone_id = var.zone_id
+
+  records = [ "protonmail${each.value}.domainkey.${var.MX_MAPPING.DKIM}" ]
+}

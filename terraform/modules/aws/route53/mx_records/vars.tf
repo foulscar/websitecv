@@ -10,5 +10,6 @@ variable "MX_MAPPING" {
   type = object({
     TXT = set(string)
     MX = set(string)
+    DKIM = string
   })
 }
