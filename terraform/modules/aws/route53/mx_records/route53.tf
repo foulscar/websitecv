@@ -19,7 +19,7 @@ resource "aws_route53_record" "MX" {
 }
 
 resource "aws_route53_record" "DKIM" {
-  for_each = ["", "2", "3"]
+  for_each = toset(["", "2", "3"])
   allow_overwrite = true
   name = "protonmail${each.value}._domainkey.${var.domain_name}"
   ttl = 172800
