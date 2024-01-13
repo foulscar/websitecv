@@ -11,5 +11,6 @@ variable "MX_MAPPING" {
     TXT = set(string)
     MX = set(string)
     DKIM = string
+    DMARC = string
   })
 }

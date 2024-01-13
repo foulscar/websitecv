@@ -28,3 +28,13 @@ resource "aws_route53_record" "DKIM" {
 
   records = [ "protonmail${each.value}.domainkey.${var.MX_MAPPING.DKIM}" ]
 }
+
+resource "aws_route53_record" "DMARC" {
+  allow_overwrite = true
+  name = "_dmarc.${var.domain_name}"
+  ttl = 172800
+  type = "TXT"
+  zone_id = var.zone_id
+
+  records = [ var.MX_MAPPING.DMARC ]
+}
