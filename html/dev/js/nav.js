@@ -35,7 +35,7 @@ function handleHashChange() {
   arrowDownElement.href = '#' + pageList[(currentPage + 1) % totalCount];
   mainPanelNav.innerHTML = '~/' + capFirstLetter(hash);
   sidePanelNav.innerHTML = '$ cd ./' + capFirstLetter(hash) + ' ';
-  htmx.ajax('GET', '/content/' + pageList[currentPage], '#main-panel-content');
+  htmx.ajax('GET', '/content/' + pageList[currentPage] + '/index.html', '#main-panel-content');
 }
 
 window.addEventListener('load', handleHashChange);

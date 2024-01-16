@@ -6,6 +6,10 @@ listView = document.getElementById('blog-list-view');
 listWrapper = document.getElementById('blog-list-wrapper');
 postView = document.getElementById('blog-post-view');
 postMDinject = document.getElementById('blog-post-md-inject');
+postTitle = document.getElementById('blog-post-title');
+postDate = document.getElementById('blog-post-date');
+postLeft = document.getElementById('blog-post-arrow-left');
+postRight = document.getElementById('blog-post-arrow-right');
 loadMoreButton = document.getElementById('blog-list-load-btn');
 
 function handleHashChange() {
@@ -17,8 +21,7 @@ function handleHashChange() {
     const blogID = window.location.hash.substring(1).split('?')[1].split('blogID=')[1];
     listView.style.display = 'none';
     postView.style.display = 'flex';
-    loadBlogPage(blogID);
-    console.log('yep');
+    loadBlogPage(parseInt(blogID));
   }
 }
 
@@ -28,8 +31,10 @@ function loadPanelListWrapper() {
   panelListWrapper.className = 'blog-panel-list-wrapper';
   listWrapper.appendChild(panelListWrapper);
   for (let i = 0; i < panelsPerSection; i++) {
-    if (blogPanelToLoad >= blogCount) { break; }
-    console.log(blogPanelToLoad);
+    if (blogPanelToLoad >= blogCount) {
+      loadMoreButton.remove();
+      break;
+    }
     const domBlogID = 'blog-panel-' + blogPanelToLoad;
     const panelWrapper = document.createElement('div');
     panelWrapper.className = 'blog-panel-wrapper';
@@ -38,8 +43,10 @@ function loadPanelListWrapper() {
     loadBlogPanel(panelWrapper, blogPanelToLoad);
     blogPanelToLoad += 1;
   }
-  listWrapper.appendChild(loadMoreButton);
-  loadMoreButton.style.display = 'flex';
+  if (blogPanelToLoad < blogCount) {
+    listWrapper.appendChild(loadMoreButton);
+    loadMoreButton.style.display = 'flex';
+  }
 }
 
 function loadBlogPanel(panelWrapper, blogID) {
@@ -72,6 +79,14 @@ function loadBlogPage(blogID) {
   fetch ('blog/posts/' + blogID + '/index.md')
   .then(response => response.text())
   .then(result => postMDinject.innerHTML = marked.parse(result));
+  fetch ('blog/posts/' + blogID + '/info.json')
+  .then(response => response.json())
+  .then(data => {
+      postTitle.innerHTML = data.title;
+      postDate.innerHTML = data.date;
+  })
+  postLeft.href = '#blog?blogID=' + ((blogID - 1 + blogCount) % blogCount);
+  postRight.href = '#blog?blogID=' + ((blogID + 1) % blogCount);
 }
 
 window.addEventListener('hashchange', handleHashChange);
