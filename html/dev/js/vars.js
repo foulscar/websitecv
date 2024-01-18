@@ -1,3 +1,5 @@
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+var mediaQuery = window.matchMedia('(min-width: 65em)');
 // Blog
 var blogCount;
 var blogPanelToLoad;

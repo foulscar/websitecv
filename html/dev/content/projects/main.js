@@ -1,6 +1,12 @@
 projectsWrapper = document.getElementById('projects-wrapper');
 projectsLoadMoreButton = document.getElementById('projects-load-btn');
-projectsPanelsPerSection = 5;
+projectsPanelsPerSection = 4;
+
+if (mediaQuery.matches) {
+  projectPanelWidth = 0.2 * vw;
+} else {
+  projectPanelWidth = 0.8 *vw;
+}
 
 fetch('projects/latest.json')
 .then(response => response.json())
@@ -16,6 +22,7 @@ function loadProjectsPanel(panelWrapper) {
   const panel = document.createElement('div');
   panel.className = 'github-card';
   panel.setAttribute('data-github', repo);
+  panel.setAttribute('data-width', projectPanelWidth);
   panelWrapper.appendChild(panel);
 }
 

@@ -821,6 +821,69 @@ term-blink::after {
   }
 }
 
+/* Projects Page */
+
+#projects-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects-list-wrapper iframe {
+  border: 0.2rem solid black;
+  box-shadow:
+    black -0.35rem 0.35rem;
+}
+
+.projects-list-wrapper iframe + *, .projects-list-wrapper + .projects-list-wrapper {
+  margin-top: 3vw;
+}
+
+#projects-load-btn {
+  align-self: center;
+  border: 0.2rem solid black;
+  border-radius: 10px;
+  color: white;
+  background-color: var(--clr-ascent-700);
+  padding: 1vw;
+  margin-top: 6vw;
+  font-size: 4vw;
+  font-weight: bold;
+  box-shadow:
+    black -0.2rem 0.2rem;
+}
+
+#projects-load-btn:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 65em) {
+  #projects-load-btn, .projects-list-wrapper iframe + *, .projects-list-wrapper + .projects-list-wrapper {
+    margin-top: unset;
+  }
+
+  #projects-load-btn {
+    font-size: 1vw;
+    padding: 0.25vw;
+    margin-top: 1vw;
+  }
+
+  .projects-list-wrapper {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .projects-list-wrapper iframe {
+    margin: 1vw;
+  }
+}
+
 /* Resume Page */
 
 #resume-wrapper {
