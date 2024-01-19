@@ -821,6 +821,60 @@ term-blink::after {
   }
 }
 
+/* Metrics Page */
+
+.metrics-service-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--clr-primary-400);
+  border: 0.2rem solid black;
+  border-radius: 10px;
+  box-shadow:
+    black -0.2rem 0.2rem;
+}
+
+.metrics-service-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 3vw;
+  margin: 1vw;
+}
+
+.metrics-service-wrapper img {
+  width: 30vw;
+  margin-right: 1vw;
+  border: 0.2rem solid black;
+  border-radius: 10px;
+  box-shadow:
+    black -0.1rem 0.1rem;
+}
+
+.metrics-service-wrapper + .metrics-service-wrapper {
+  margin-top: 3vw;
+}
+
+.metrics-service-columns-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 1vw;
+}
+
+.metrics-service-columns-wrapper p {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--clr-primary-200);
+  border: 0.2rem solid black;
+  padding: 0.5vw;
+  margin: 0.5vw;
+}
+
+.metrics-service-columns-wrapper p text {
+  font-size: 4vw;
+  font-style: bold;
+}
+
 /* Projects Page */
 
 #projects-wrapper {
