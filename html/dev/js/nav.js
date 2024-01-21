@@ -15,10 +15,19 @@ const sidePanelNav = document.getElementById('pfp-sidepanel-nav');
 
 const capFirstLetter = str => str.charAt(0).toUpperCase() + str.slice(1);
 
+var navDates = document.querySelectorAll('.nav-date');
+var navDatesArray = Array.from(navDates);
+
+fetch('content/dates.json')
+.then(response => response.json())
+.then(data => {
+  navDatesArray.forEach(function(element, index) {
+    element.innerHTML = data.dates[index] + " " + capFirstLetter(pageList[index]);
+  });
+})
+
 function handleHashChange() {
   var hash = window.location.hash.substring(1).split('?')[0];
-  if (pageList.indexOf(hash) == currentPage)
-    return;
   if (!pageList.includes(hash)) {
     currentPage = 2;
     hash = 'home';
