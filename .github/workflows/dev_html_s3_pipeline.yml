@@ -14,7 +14,7 @@ jobs:
       - name: Get Last Modified Files and Create dates.json
         run: |
           chmod +x ./scripts/getLastModified.sh
-          ./scripts/getLastmodified.sh ./html/dev
+          ./scripts/getLastModified.sh ./html/dev
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
