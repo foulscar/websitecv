@@ -139,7 +139,7 @@ header {
   font-size: 10vw;
 }
 
-.pfp-btn-wrapper i + i {
+.pfp-btn-wrapper a + * {
   margin-left: 50%;
 }
 
@@ -753,7 +753,7 @@ term-blink::after {
   margin: 0 2%;
 }
 
-.contact-form input, .contact-form span {
+.contact-form input, .contact-form textarea {
   font-size: 3vw;
   width: 90%;
   margin: 2%;
@@ -820,7 +820,7 @@ term-blink::after {
     font-size: 0.6vw;
   }
 
-  .contact-form input, .contact-form span {
+  .contact-form input, .contact-form textarea {
     font-size: 1vw;
   }
 }
