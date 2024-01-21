@@ -11,6 +11,10 @@ var postDate;
 var postView;
 var postMDinject;
 var loadMoreButton;
+// Metrics
+var metricsAPIurl;
+var metricStartDate;
+var metricStopDate;
 // Projects
 var projectsJSON;
 var projectsCount;
