@@ -44,3 +44,6 @@ This is a 3-tier serverless website portfolio:
 - AWS EventBridge/EventBridge Scheduler
   - Uses a rule that triggers every hour
   - Triggers a Lambda function that grabs metrics from CloudWatch, pushes them to DynamoDB, and then invalidates the private REST API cache
+
+
+![backend_diagram](./diagrams/aws_backend/v1/diagram.png)
