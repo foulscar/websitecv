@@ -41,7 +41,7 @@ provider "aws" {
   region = var.AWS_REGION
   alias = "PROD"
   assume_role {
-    role_arn = var.ASSUME_ROLE_PROD
+    role_arn = var.ASSUME_ROLE_DEV
   }
   default_tags {
     tags = {
