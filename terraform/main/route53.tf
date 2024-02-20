@@ -24,24 +24,17 @@ resource "aws_route53_record" "dev_subdomain" {
 // Prod
 // ---
 
-resource "aws_route53_record" "prod_domain" {
-  allow_overwrite = true
-  name = "prod.${var.domain_name}"
-  ttl = 172800
-  type = "NS"
+resource "aws_route53_record" "prod_alias" {
+  for_each = module.stage_prod.route53_aliases
+
   zone_id = aws_route53_zone.main.zone_id
-
-  records = module.stage_prod.subdomain_ns
-}
-
-resource "aws_route53_record" "prod_cname" {
-  allow_overwrite = true
-  name = var.domain_name
-  ttl = 172800
-  type = "CNAME"
-  zone_id = aws_route53_zone.main.zone_id
-
-  records = [ "prod.${var.domain_name}" ]
+  name = each.name
+  type = "A"
+  alias {
+    name = each.alias.name
+    zone_id = each.alias.zone_id
+    evaluate_target_health = each.alias.evaluate_target_health
+  }
 }
 
 // ---
