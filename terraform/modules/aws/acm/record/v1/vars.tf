@@ -8,5 +8,5 @@ variable "ttl" {
 }
 
 variable "domain_validation_options" {
-  type = set
+  type = set(any)
 }
