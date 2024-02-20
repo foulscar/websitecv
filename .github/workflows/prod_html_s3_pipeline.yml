@@ -1,4 +1,4 @@
-name: Deploy HTML files to the Dev S3 Bucket
+name: Deploy HTML files to the Prod S3 Bucket
 on:
   push:
     paths:
@@ -14,8 +14,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-region: ${{ secrets.dev_html_s3_bucket_region }}
-          role-to-assume: ${{ secrets.dev_assume_role_arn }}
+          aws-region: ${{ secrets.prod_html_s3_bucket_region }}
+          role-to-assume: ${{ secrets.prod_assume_role_arn }}
           role-session-name: gh-actions
 
       - name: Deploy HTML Files to S3
@@ -23,7 +23,7 @@ jobs:
         with:
           folder: html/dev
           bucket: ${{ secrets.prod_html_s3_bucket }}
-          bucket-region: ${{ secrets.dev_html_s3_bucket_region }}
+          bucket-region: ${{ secrets.prod_html_s3_bucket_region }}
           dist-id: ${{ secrets.prod_html_dist_id }}
           invalidation: /
           delete-removed: true
