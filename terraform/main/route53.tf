@@ -26,22 +26,12 @@ resource "aws_route53_record" "dev_subdomain" {
 
 resource "aws_route53_record" "prod_domain" {
   allow_overwrite = true
-  name = "prod.${var.domain_name}"
+  name = "cv.${var.domain_name}"
   ttl = 172800
   type = "NS"
   zone_id = aws_route53_zone.main.zone_id
 
   records = module.stage_prod.subdomain_ns
-}
-
-resource "aws_route53_record" "prod_cname" {
-  allow_overwrite = true
-  name = "cv.${var.domain_name}"
-  ttl = 172800
-  type = "CNAME"
-  zone_id = aws_route53_zone.main.zone_id
-
-  records = [ "prod.${var.domain_name}" ]
 }
 
 // ---

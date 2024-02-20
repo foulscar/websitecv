@@ -1,3 +1,3 @@
 locals {
-  domain_string = "${var.stage}.${var.domain_name}"
+  domain_string = "cv.${var.domain_name}"
 }
