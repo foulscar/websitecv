@@ -34,6 +34,16 @@ resource "aws_route53_record" "prod_domain" {
   records = module.stage_prod.subdomain_ns
 }
 
+resource "aws_route53_record" "prod_cname" {
+  allow_overwrite = true
+  name = var.domain_name
+  ttl = 172800
+  type = "CNAME"
+  zone_id = aws_route53_zone.main.zone_id
+
+  records = [ "prod.${var.domain_name}" ]
+}
+
 // ---
 // Create Route53 Records for MX/Mailing Server
 // ---
