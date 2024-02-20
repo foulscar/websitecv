@@ -24,14 +24,28 @@ resource "aws_route53_record" "dev_subdomain" {
 // Prod
 // ---
 
-resource "aws_route53_record" "prod_domain" {
-  allow_overwrite = true
-  name = "${var.domain_name}"
-  ttl = 172800
-  type = "NS"
+// CloudFront Record
+resource "aws_route53_record" "cf_record" {
   zone_id = aws_route53_zone.main.zone_id
+  name = var.domain_name
+  type = "A"
+  alias {
+    name = module.stage_prod.cf_record_alias.name
+    zone_id = module.stage_prod.cf_record_alias.zone_id
+    evaluate_target_health = true
+  }
+}
 
-  records = module.stage_prod.subdomain_ns
+// API Gateway record
+resource "aws_route53_record" "api_record" {
+  zone_id = aws_route53_zone.main.zone_id
+  name = "api.${var.domain_name}"
+  type = "A"
+  alias {
+    name = module.stage_prod.api_record_alias.target_domain_name
+    zone_id = module.stage_prod.api_record_alias.hosted_zone_id
+    evaluate_target_health = false
+  }
 }
 
 // ---
