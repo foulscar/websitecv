@@ -36,7 +36,7 @@ resource "aws_route53_record" "prod_domain" {
 
 resource "aws_route53_record" "prod_cname" {
   allow_overwrite = true
-  name = var.domain_name
+  name = "cv.${var.domain_name}"
   ttl = 172800
   type = "CNAME"
   zone_id = aws_route53_zone.main.zone_id
