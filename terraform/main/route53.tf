@@ -26,7 +26,7 @@ resource "aws_route53_record" "dev_subdomain" {
 
 resource "aws_route53_record" "prod_domain" {
   allow_overwrite = true
-  name = "${var.domain_name}"
+  name = "prod.${var.domain_name}"
   ttl = 172800
   type = "NS"
   zone_id = aws_route53_zone.main.zone_id
