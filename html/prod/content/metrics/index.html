@@ -1,0 +1,61 @@
+<div id="metrics-time-wrapper">
+  <div class="metrics-time-panel">
+    <h1>Metrics Cached Every Hour (EST)</h1>
+    <div>
+      <h2 id="metrics-time-start">Loading...</h2>
+      <h3>↑↓</h3>
+      <h2 id="metrics-time-stop">Loading...</h2>
+    </div>
+  </div>
+</div>
+<div id="metrics-wrapper">
+  <div class="metrics-service-wrapper">
+    <div class="metrics-service-title-wrapper">
+      <img src="img/metrics/aws/cloudfront.png">
+      <h1 class="metrics-service-title">CloudFront</h1>
+    </div>
+    <div class="metrics-service-columns-wrapper">
+      <p>
+        <text>Requests</text>
+        <text id="cloudfront_requests">0</text>
+      </p>
+    </div>
+  </div>
+  <div class="metrics-service-wrapper">
+    <div class="metrics-service-title-wrapper">
+      <img src="img/metrics/aws/apigateway.png">
+      <h1 class="metrics-service-title">API Gateway</h1>
+    </div>
+    <div class="metrics-service-columns-wrapper">
+      <p>
+        <text>FrontEnd Proxy Requests</text>
+        <text id="api_requests">0</text>
+      </p>
+      <p>
+        <text>BackEnd Cache Hits</text>
+        <text id="api_backend_hits">0</text>
+      </p>
+      <p>
+        <text>BackEnd Cache Misses</text>
+        <text id="api_backend_misses">0</text>
+      </p>
+    </div>
+  </div>
+  <div class="metrics-service-wrapper">
+    <div class="metrics-service-title-wrapper">
+      <img src="img/metrics/aws/dynamodb.png">
+      <h1 class="metrics-service-title">DynamoDB</h1>
+    </div>
+    <div class="metrics-service-columns-wrapper">
+      <p>
+        <text>Read Units Consumed</text>
+        <text id="dynamodb_readunits">0</text>
+      </p>
+      <p>
+        <text>Write Units Consumed</text>
+        <text id="dynamodb_writeunits">0</text>
+      </p>
+    </div>
+  </div>
+</div>
+<script src="content/metrics/main.js"></script>

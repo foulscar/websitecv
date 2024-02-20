@@ -1,0 +1,175 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@900&display=swap');
+
+/* Main Styling */
+
+:root {
+  /* Colors */
+  --clr-primary-400: #F8D6B3;
+  --clr-primary-200: #FDFD96;
+  --clr-ascent-700: #a30f57;
+  --clr-ascent-300: #E3DFF2;
+  
+  /* Pixels */
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Mabry pro, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* Card Styling */
+
+.card-big {
+ border: 0.2rem solid black;
+ box-shadow:
+  black -0.35rem 0.35rem
+}
+
+.card-small {
+ border: 0.2rem solid black;
+ border-radius: 0.2rem;
+ box-shadow:
+  black -0.2rem 0.2rem
+}
+
+/* Header Styling */
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-title {
+  font-size: min(11vw,5.5rem);
+}
+
+.header-subtitle {
+  font-size: min(6vw,3rem);
+}
+
+.title-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vw 2vw;
+  margin: 2vw 2vw 0vw 2vw;
+  background-color: #F8D6B3;
+}
+
+.title-role-card {
+  display: flex;
+  padding: 2px 2px 2px 2px;
+  background-color: #FDFD96;
+}
+
+.subheader-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 2vw 2vw;
+  margin: 0vw 2vw 2vw 2vw;
+}
+
+.pfp-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  position: relative;
+  right: -1vw;
+  z-index: 10;
+  background-color: white;
+}
+
+.pfp-wrapper img {
+  width: 90%;
+  height: auto;
+  margin: 5% 5%;
+  border: 0.2rem solid black;
+  border-radius: 5px;
+}
+
+.pfp-btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2.5vw 5vw 5vw 5vw;
+}
+
+.pfp-btn-wrapper * {
+  font-size: 10vw;
+}
+
+.pfp-btn-wrapper i + i {
+  margin-left: 50%;
+}
+
+.pfp-sidepanel {
+  display: flex;
+  border: 0.2rem solid black;
+  background-color: var(--clr-ascent-700);
+  width: 35%;
+  height: 50vw;
+  position: relative;
+  left: -1vw;
+  box-shadow:
+    black -0.2rem 0.2rem
+}
+
+/* Main Panel */
+
+.main-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.main-panel-top {
+  display: flex;
+  background-color: var(--clr-ascent-300);
+  border: 0.2rem solid black;
+  width: 40%;
+  height: 10vw;
+}
+
+.main-panel {
+  display: flex;
+  background-color: var(--clr-ascent-300);
+  border: 0.2rem solid black;
+  width: 90%;
+  min-height: 20rem;
+}
+
+/* Desktop */
+@media (min-width: 70em) {
+  header {
+    flex-direction: unset;
+    justify-content: unset;
+  }
+
+  .title-wrapper {
+    align-items: flex-start;
+  }
+}
+
+/* Utility */
+
+.border--round-10 {
+  border-radius: 10px;
+}
