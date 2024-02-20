@@ -7,6 +7,7 @@ output "route53_aliases" {
         zone_id = module.cloudfront_distribution.zone_id
         evaluate_target_health = true
       }
+      dvo = module.acm_cert_cf.domain_validation_options
     },
     {
       name = "api.${local.domain_string}"
@@ -15,6 +16,7 @@ output "route53_aliases" {
         zone_id = module.public_api.hosted_zone_id
         evaluate_target_health = false
       }
+      dvo = module.acm_cert_api.domain_validation_options
     }
   ]
 }
