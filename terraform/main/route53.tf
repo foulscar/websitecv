@@ -21,20 +21,6 @@ resource "aws_route53_record" "dev_subdomain" {
 }
 
 // ---
-// Prod
-// ---
-
-resource "aws_route53_record" "prod_domain" {
-  allow_overwrite = true
-  name = "${var.domain_name}"
-  ttl = 172800
-  type = "NS"
-  zone_id = aws_route53_zone.main.zone_id
-
-  records = module.stage_prod.subdomain_ns
-}
-
-// ---
 // Create Route53 Records for MX/Mailing Server
 // ---
 
