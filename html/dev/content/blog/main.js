@@ -1,4 +1,3 @@
-blogCount = 6;
 blogPanelToLoad = 0;
 panelsPerSection = 5;
 
@@ -11,6 +10,17 @@ postDate = document.getElementById('blog-post-date');
 postLeft = document.getElementById('blog-post-arrow-left');
 postRight = document.getElementById('blog-post-arrow-right');
 loadMoreButton = document.getElementById('blog-list-load-btn');
+
+fetch("blog/latest.json")
+.then(response => response.json())
+.then(data => {
+  blogCount = data.count;
+
+  window.addEventListener('hashchange', handleHashChange);
+  loadMoreButton.addEventListener('click', loadPanelListWrapper);
+  loadPanelListWrapper();
+  handleHashChange();
+});
 
 function handleHashChange() {
   if (!window.location.hash.includes('?blogID=')) {
@@ -30,11 +40,8 @@ function loadPanelListWrapper() {
   const panelListWrapper = document.createElement('div');
   panelListWrapper.className = 'blog-panel-list-wrapper';
   listWrapper.appendChild(panelListWrapper);
-  for (let i = 0; i < panelsPerSection; i++) {
-    if (blogPanelToLoad >= blogCount) {
-      loadMoreButton.remove();
-      break;
-    }
+
+  for (let i = 0; i < panelsPerSection && blogPanelToLoad < blogCount; i++) {
     const domBlogID = 'blog-panel-' + blogPanelToLoad;
     const panelWrapper = document.createElement('div');
     panelWrapper.className = 'blog-panel-wrapper';
@@ -46,6 +53,8 @@ function loadPanelListWrapper() {
   if (blogPanelToLoad < blogCount) {
     listWrapper.appendChild(loadMoreButton);
     loadMoreButton.style.display = 'flex';
+  } else {
+    loadMoreButton.remove();
   }
 }
 
@@ -88,10 +97,3 @@ function loadBlogPage(blogID) {
   postLeft.href = '#blog?blogID=' + ((blogID - 1 + blogCount) % blogCount);
   postRight.href = '#blog?blogID=' + ((blogID + 1) % blogCount);
 }
-
-window.addEventListener('hashchange', handleHashChange);
-
-loadPanelListWrapper();
-handleHashChange();
-
-loadMoreButton.addEventListener('click', loadPanelListWrapper);
