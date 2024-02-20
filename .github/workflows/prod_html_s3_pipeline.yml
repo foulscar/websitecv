@@ -1,0 +1,32 @@
+name: Deploy HTML files to the Dev S3 Bucket
+on:
+  push:
+    paths:
+      - 'html/prod/**'
+jobs:
+  run:
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ${{ secrets.dev_html_s3_bucket_region }}
+          role-to-assume: ${{ secrets.dev_assume_role_arn }}
+          role-session-name: gh-actions
+
+      - name: Deploy HTML Files to S3
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: html/dev
+          bucket: ${{ secrets.prod_html_s3_bucket }}
+          bucket-region: ${{ secrets.dev_html_s3_bucket_region }}
+          dist-id: ${{ secrets.prod_html_dist_id }}
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: '{.*/**,**}'
