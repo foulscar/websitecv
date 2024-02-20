@@ -27,6 +27,10 @@ variable "ASSUME_ROLE_DEV" {
   type = string
 }
 
+variable "ASSUME_ROLE_PROD" {
+  type = string
+}
+
 variable "GITHUB_TOKEN" {
   type = string
 }
