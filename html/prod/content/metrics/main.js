@@ -1,5 +1,5 @@
 metricsAPIurl = "https://api.cv.corbingrossen.me/metrics";
-
+ 
 metricStartDate = document.getElementById('metrics-time-start');
 metricStopDate = document.getElementById('metrics-time-stop');
 
