@@ -42,8 +42,8 @@ resource "aws_route53_record" "api_record" {
   name = "api.${var.domain_name}"
   type = "A"
   alias {
-    name = module.stage_prod.api_record_alias.target_domain_name
-    zone_id = module.stage_prod.api_record_alias.hosted_zone_id
+    name = module.stage_prod.api_record_alias.name
+    zone_id = module.stage_prod.api_record_alias.zone_id
     evaluate_target_health = false
   }
 }
