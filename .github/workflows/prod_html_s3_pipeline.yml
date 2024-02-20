@@ -21,7 +21,7 @@ jobs:
       - name: Deploy HTML Files to S3
         uses: reggionick/s3-deploy@v4
         with:
-          folder: html/dev
+          folder: html/prod
           bucket: ${{ secrets.prod_html_s3_bucket }}
           bucket-region: ${{ secrets.prod_html_s3_bucket_region }}
           dist-id: ${{ secrets.prod_html_dist_id }}
