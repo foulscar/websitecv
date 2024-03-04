@@ -10,7 +10,7 @@ This is a 3-tier serverless website portfolio:
 ## FrontEnd
 
 ##### Technologies:
-- Basic HTML & CSS
+- Basic HTML, JS & CSS
 - HTMX AJAX used in nav.js for single-page navigation
   - Injects HTML pages fetched from CloudFront into a main content wrapper
 - MarkedD for the blog page
